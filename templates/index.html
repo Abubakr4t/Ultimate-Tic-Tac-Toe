@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Tic-Tac-Toe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen p-4">
+    <h1 class="text-3xl font-bold mb-6 text-gray-800">Ultimate Tic-Tac-Toe</h1>
+    
+    <div class="mb-4 flex items-center gap-4">
+        <div>
+            <label for="difficulty" class="mr-2 font-medium">AI Difficulty:</label>
+            <select id="difficulty" class="px-3 py-1 border rounded-md bg-white">
+                <option value="2">Easy (Depth 2)</option>
+                <option value="4" selected>Medium (Depth 4)</option>
+                <option value="6">Hard (Depth 6)</option>
+            </select>
+        </div>
+    </div>
+    
+    <div id="game" class="grid grid-cols-3 gap-2 bg-gray-600 p-3 rounded-lg shadow-lg">
+        <!-- 9 small boards will be generated here -->
+        <div id="board-0-0" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-0-1" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-0-2" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-1-0" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-1-1" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-1-2" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-2-0" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-2-1" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+        <div id="board-2-2" class="board grid grid-cols-3 gap-px bg-gray-400 p-1 rounded"></div>
+    </div>
+    
+    <p id="status" class="mt-4 text-lg font-medium text-center">Loading game...</p>
+    <p id="ai-stats" class="mt-2 text-sm text-gray-600 text-center min-h-[20px]"></p>
+    
+    <div class="mt-4 flex gap-2">
+        <button id="reset" class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors">
+            Reset Game
+        </button>
+    </div>
+    
+    <div class="mt-6 text-sm text-gray-600 max-w-md text-center">
+        <p><strong>How to play:</strong> Win small boards to claim them. Get three in a row on the big board to win!
+        Your move determines which small board your opponent must play in next.</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
